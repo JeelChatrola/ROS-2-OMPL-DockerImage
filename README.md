@@ -1,6 +1,7 @@
 ## ROS2 Humble + OMPL - Docker
 
 Repo provides a quick start with a ROS2 Humble + OMPL development in Docker.
+Additionally it consists of Tmux + oh-my-zsh setup for convenience.
 
 ### Setup
 

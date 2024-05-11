@@ -1,8 +1,10 @@
+# Pulls ROS Image from Docker Hub
 FROM osrf/ros:humble-desktop-full
 
 ARG WORKSPACE=humble_dev_ws
 WORKDIR /root/$WORKSPACE
 
+# Set environment variables for GUI support
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES \
@@ -11,6 +13,7 @@ ENV QT_X11_NO_MITSHM=1
 ENV EDITOR=nano
 ENV XDG_RUNTIME_DIR=/tmp
 
+# Install necessary packages for ROS2 and Gazebo
 RUN apt-get update && apt-get install -y \
     cmake \
     curl \
@@ -50,11 +53,13 @@ RUN wget https://github.com/openrr/urdf-viz/releases/download/v0.38.2/urdf-viz-x
     chmod +x /usr/local/bin/urdf-viz && \
     rm -f urdf-viz-x86_64-unknown-linux-gnu.tar.gz
 
+# Oh My Zsh Installation 
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
     -p git \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
+# Tmuxinator Installation
 RUN gem install tmuxinator && \
     wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 
@@ -63,6 +68,7 @@ RUN apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Added OMPL Installation commands
+
 
 
 RUN echo "export DISABLE_AUTO_TITLE=true" >> /root/.zshrc
