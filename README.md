@@ -1,14 +1,17 @@
-## ROS2 Humble + OMPL - Docker
+## ROS2 Humble - docker dev template
 
-Repo provides a quick start with a ROS2 Humble + OMPL development in Docker.
-Additionally it consists of Tmux + oh-my-zsh setup for convenience.
+This repo provides a template for a quick start with a ROS2 Humble development in Docker.
+
+<div><video src="https://user-images.githubusercontent.com/6638780/188269308-48c5b343-f268-408a-9d1a-435417dc9260.mp4"/></div>
 
 ### Setup
 
 ```shell
-git clone https://github.com/JeelChatrola/ROS-2-OMPL-DockerImage.git && cd ROS-2-OMPL-DockerImage
+git clone https://github.com/sskorol/ros2-humble-docker-dev-template.git && cd ros2-humble-docker-dev-template
 ./run.sh -h
 ```
+
+![Help](https://user-images.githubusercontent.com/6638780/188268405-82f77eb3-1308-46ba-b6ba-1ef3f956f0af.png)
 
 ### Building
 

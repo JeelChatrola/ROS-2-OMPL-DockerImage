@@ -44,6 +44,7 @@ fi
 if [[ "$should_build" == false && "$should_run" == false ]] || [[ "$should_build" == true && "$should_run" == true ]]; then
     echo "You must specify either a build(-b) or run(-r) mode"
     help
+    
 elif [[ "$should_run" == true ]]; then
     mkdir -p $HOME/$workspace
     xhost +local:docker
@@ -63,6 +64,7 @@ elif [[ "$should_run" == true ]]; then
                -v $PWD/.tmux.conf:/root/.tmux.conf \
                --device=/dev/bus/usb:/dev/bus/usb \
                $image
+               
 elif [[ "$should_build" == true ]]; then
    docker build --build-arg WORKSPACE=$workspace -t $image .
 fi
